@@ -41,13 +41,11 @@ app.get("/", (req, res) => {
 
 app.post("/", async (req, res) => {
   let { name, email, password } = req.body;
-  let newCustomer = Customer({
+  await Customer.insertOne({
     name,
     email,
     password,
   });
-  let addedCustomer = await newCustomer.save();
-  console.log(newCustomer);
   res.redirect("/");
 });
 
