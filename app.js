@@ -15,9 +15,12 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(methodOverride("_method"));
 
 // Connecting to DB
-let MONGO_URL = "mongodb://localhost:27017/nexus"; //mongodb://localhost:27017
+let MONGO_URL = "mongodb://100.20.92.101:27017/nexus"; //mongodb://localhost:27017
 async function main() {
-  await mongoose.connect(MONGO_URL);
+  await mongoose.connect(MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
 }
 main()
   .then(() => {
