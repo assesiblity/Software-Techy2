@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Connecting to DB
 // let MONGO_URL = "mongodb://100.20.92.101:27017/nexus"; //mongodb://localhost:27017
-let dbUrl = process.env.CLOUD_DB_URL;
+let dbUrl = `${process.env.CLOUD_DB_URL}`;
 async function main() {
   await mongoose.connect(dbUrl);
 }
